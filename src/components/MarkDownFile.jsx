@@ -39,8 +39,6 @@ export default function MarkDownFile({url}) {
 
   useEffect(() => {
     setIsLoadingContent(true);
-  
-    // Verificar si se proporciona una URL directamente
     if (url) {
       // Si se proporciona la URL, establecer directamente el contenido
       fetch(`${apiUrl}/obtener-articulo`, {
@@ -65,27 +63,21 @@ export default function MarkDownFile({url}) {
         setIsLoadingContent(false);
       });
     } else {
-      // Si no se proporciona una URL, obtener la URL del artículo por ID
       const id = location.pathname.split('/').pop();
+      // Si no se proporciona la URL, obtener la URL del artículo por ID
       fetch(`${apiUrl}/get/${id}`)
         .then(response => {
-          return response.json();
+               return response.json();
         })
         .then(data => {
-          if (data && data.url) {
-            // Si se encuentra la URL, cargar el contenido
-            cargandoDoc(data.url);
-          } else {
-            throw new Error('No se pudo obtener la URL del artículo');
-          }
+          cargandoDoc(data.url);
         })
         .catch(error => {
           console.error('Error al obtener la URL del artículo:', error);
           setIsLoadingContent(false);
         });
     }
-  }, [url, location]);
-   
+  }, []); 
 
   async function cargandoDoc(url){
     // Realizar la segunda solicitud solo cuando doc tenga un valor
