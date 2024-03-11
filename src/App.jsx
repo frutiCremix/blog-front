@@ -2,7 +2,7 @@ import {useState } from 'react'
 import { Routes, Route } from "react-router-dom";
 import Inicio from "./components/Inicio";
 import MarkDownFile from "./components/MarkDownFile";
-import LoginForm from './components/loginForm';
+import LoginForm from './components/LoginForm';
 function App() {
 
   
