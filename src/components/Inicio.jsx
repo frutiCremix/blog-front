@@ -6,7 +6,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Inicio({handler}){
     
-    console.log(import.meta.env)
+    
 
     const [articles,setArticles]=useState([])
     useEffect(()=>{
