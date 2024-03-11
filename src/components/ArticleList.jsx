@@ -42,7 +42,7 @@ export default function ArticlesList({ articles, handler }) {
             fecha={article.fecha}
             handler={handler}
           />
-        ))}
+        )).reverse()}
       </ul>
     </section>
   );
